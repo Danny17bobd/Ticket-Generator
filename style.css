@@ -1,0 +1,428 @@
+body{
+    background-color: hsl(248, 70%, 10%);
+    background-image: url('images/background-mobile.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    min-height: 100vh;
+    margin: 0;
+    color: hsl(0, 0%, 100%);
+    padding: 10px;
+}
+.container{
+    text-align: center;
+}
+.container p{
+    color: hsl(252, 6%, 83%);
+}
+.upload{
+    color: hsl(252, 6%, 83%);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dropzone {
+    width: 100%;
+    height: 120px;
+    border: 2px dashed hsl(252, 6%, 83%);
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.dropzone:hover {
+    border-color: hsl(0, 0%, 100%);
+    background-color: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+
+.upload-icon {
+    width: 32px;
+    height: 32px;
+    background-color: hsl(245, 19%, 35%);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.upload-text {
+    font-size: 14px;
+    color: hsl(245, 15%, 58%);
+}
+.upload-icon.has-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    object-fit: cover; /* Prevents image distortion */
+    background-color: transparent;
+    padding: 0;
+}
+
+/* Action button container styling */
+.avatar-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 5px;
+    z-index: 2; /* Ensures buttons are clickable over the parent label */
+}
+
+/* Small secondary action button style */
+.btn-action {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: hsl(0, 0%, 100%);
+    border: none;
+    padding: 4px 10px;
+    font-size: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    height: auto; /* Overrides global button height */
+}
+
+.btn-action:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Completely hide the default native browser input */
+.dropzone input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+.dropzone:focus-within {
+    outline:2px solid hsl(245, 15%, 58%);
+    border-color: hsl(245, 19%, 35%);
+    box-shadow: inset 0 0 0 1.8px hsl(245, 19%, 35%); 
+}
+.error-message{
+    display: flex;
+    flex-direction: row;
+    font-size: 12px;
+    gap: 5px;
+    align-items: center;
+}
+.info{
+    width: 20px;
+}
+.error-message p{
+    color: hsl(245, 15%, 58%);
+}
+
+.inputted{
+    background-color: hsl(248, 70%, 10%);
+    border: 1px solid hsl(245, 19%, 35%);
+    border-radius: 10px;
+    height: 2.3em;
+    color: hsl(245, 15%, 58%);
+    padding-left: 8px;
+}
+.inputted::placeholder{
+    color: hsl(245, 15%, 58%);
+    opacity: 1;
+}
+.inputted:active {
+    outline:2px solid hsl(245, 15%, 58%);
+    border-color: hsl(245, 19%, 35%);
+    box-shadow: 0 0 0 1.8px hsl(245, 19%, 35%); 
+}
+.input-error{
+    border: 1px solid hsl(7, 71%, 60%);
+}
+.inputted:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+.field-error-message {
+    color: hsl(7, 71%, 60%);
+    font-size: 12px;
+    margin-top: 4px;
+}
+.hidden {
+    display: none !important;
+}
+.error-message.active-error p {
+    color: hsl(7, 71%, 60%); 
+}
+.error-message.active-error .info {
+    filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(333deg) brightness(98%) contrast(92%);
+}
+button{
+    background-color: hsl(7, 88%, 67%);
+    height: 2.3em;
+    border-radius: 10px;
+    border: none;
+    color: hsl(248, 70%, 10%);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+button:hover{
+    background-color: hsl(7, 71%, 60%);
+    cursor: pointer;
+}
+button:active {
+    outline: 2px solid hsl(245, 19%, 35%);
+    box-shadow: 0 0 0 3px hsl(248, 70%, 10%);
+}
+
+.ticket-view {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Gradient text effect on the user's name in the heading */
+.gradient-text {
+    background: linear-gradient(to right, hsl(7, 86%, 67%), hsl(0, 0%, 100%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.highlight-email {
+    color: hsl(7, 88%, 67%);
+}
+
+/* Ticket Container */
+.ticket-card {
+    background: url('images/pattern-ticket.svg') no-repeat center / 100% 100%;
+    width: 100%;
+    max-width: 345px;
+    aspect-ratio: 600 / 280;
+    margin: 32px auto 0;
+    padding: 16px; /* Tighter padding for mobile! */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+}
+
+.ticket-left {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.ticket-right {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ticket-event,
+.ticket-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ticket-event img {
+    width: 28px;
+    height: 28px;
+}
+
+.ticket-event h2 {
+    font-size: 18px;
+    line-height: 1.2;
+}
+
+.ticket-event p {
+    font-size: 12px;
+    color: hsl(252, 6%, 83%);
+}
+
+.ticket-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.ticket-user h3 {
+    font-size: 18px;
+    line-height: 1.2;
+}
+
+.ticket-github {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+    color: hsl(252, 6%, 83%);
+}
+
+.ticket-github img {
+    width: 16px;
+    height: 16px;
+}
+
+.ticket-right span {
+    writing-mode: vertical-rl;
+    color: hsl(245, 15%, 58%);
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+/* Full-screen decorative layer */
+.bg-decorations {
+    position: fixed;
+    inset: 0; /* Shortcut for top: 0; right: 0; bottom: 0; left: 0; */
+    overflow: hidden;
+    pointer-events: none; /* Lets mouse clicks pass straight through */
+    z-index: 0;
+}
+
+/* Keep your actual content above the decorative graphics */
+header,
+main {
+    position: relative;
+    z-index: 2;
+}
+
+/* 1. Vertical Grid Lines across the top */
+.bg-lines {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1440px;
+}
+
+/* 2. Top-Right Squiggly Line */
+.bg-squiggle-top {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    width: 120px; /* Smaller on mobile */
+}
+
+/* 3. Bottom-Left Squiggly Line */
+.bg-squiggle-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 280px; /* Smaller on mobile */
+}
+
+/* 4. Decorative Circles */
+.bg-circle-top {
+    position: absolute;
+    top: -60px;
+    left: 40px;
+    width: 140px;
+}
+
+.bg-circle-middle {
+    position: absolute;
+    top: 52%;
+    right: -60px;
+    width: 140px;
+}
+
+@media (min-width: 768px) {
+    body {
+        background-image: url('images/background-desktop.png');
+        background-image: url('images/background-tablet.png');
+    }
+    #form-section h1,
+    #ticket-section h1 {
+        font-size: 54px;
+        line-height: 1.1;
+        max-width: 780px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .subtitle {
+        font-size: 20px;
+        max-width: 520px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .ticket-card {
+        max-width: 600px;
+        padding: 28px 32px;
+    }
+
+    .ticket-event,
+    .ticket-user {
+        gap: 16px;
+    }
+
+    .ticket-event img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .ticket-event h2 {
+        font-size: 32px;
+    }
+
+    .ticket-event p {
+        font-size: 16px;
+    }
+
+    .ticket-avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 12px;
+    }
+
+    .ticket-user h3 {
+        font-size: 28px;
+    }
+
+    .ticket-github {
+        font-size: 18px;
+    }
+
+    .ticket-github img {
+        width: 22px;
+        height: 22px;
+    }
+
+    .ticket-right span {
+        font-size: 26px;
+    }
+    .bg-squiggle-top {
+        top: 60px;
+        width: 440px;
+    }
+
+    .bg-squiggle-bottom {
+        width: 780px;
+    }
+
+    .bg-circle-top {
+        top: -80px;
+        left: 60px;
+        width: 215px;
+    }
+
+    .bg-circle-middle {
+        top: 50%;
+        right: 22%;
+        width: 215px;
+    }
+}
+
+@media (min-width: 1024px) {
+    body {
+        background-image: url('images/background-desktop.png');
+    }
+}
